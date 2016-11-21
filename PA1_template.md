@@ -50,8 +50,7 @@ The following code creates a data frame containing the average steps taken in ea
 
 
 ```r
-stepDataIntervals <- mutate(stepData, interval=as.factor(interval)) %>% 
-    group_by(interval)
+stepDataIntervals <-  group_by(stepData, interval)
 intervalAvgs <- summarize(stepDataIntervals, average.steps=mean(steps, na.rm=TRUE))
 maxInterval <- intervalAvgs[intervalAvgs$average.steps == max(intervalAvgs$average.steps), ]$interval
 ```
